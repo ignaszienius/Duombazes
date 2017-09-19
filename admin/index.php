@@ -17,7 +17,12 @@ mysqli_set_charset($conn, "utf8");
 
 //ar bandoma prideti irasa
 if (isset($_POST['submit'])) {
-    $sql = "INSERT INTO products (pavadinimas, kaina, kiekis) VALUES ('" . $_POST['pavadinimas'] ."', '" . $_POST['kaina'] ."', '" . $_POST['kiekis'] ."')";
+
+
+    if (isset($_FILES['image'])) {
+        move_uploaded_file($_FILES['image']['tmp_name'], "../images/" . $_FILES['image']['name']);
+    }
+    $sql = "INSERT INTO products (pavadinimas, kaina, kiekis, image) VALUES ('" . $_POST['pavadinimas'] ."', '" . $_POST['kaina'] ."', '" . $_POST['kiekis'] ."', '" . $_FILES['image']['name'] ."')";
     $result = mysqli_query($conn, $sql);
 }
 

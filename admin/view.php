@@ -26,12 +26,13 @@ if(isset($_POST['logout'])) {
 			      <th>Pavadinimas</th>
 			      <th>Kaina</th>
 			      <th>Kiekis</th>
+			      <th>Foto</th>
 			    </tr>
 			  </thead>
 			  <tbody>
 				<?php
 					foreach ($products as $product) {
-						echo "<tr><td>". $product['id'] ."</td><td>". $product['pavadinimas'] . "</td><td class='price'>". $product['kaina'] . "</td><td>". $product['kiekis'] . "</td><td><a class='btn btn-sm btn-danger' href='?delete=". $product['id'] ."' >Delete</a></td></tr>";
+						echo "<tr><td>". $product['id'] ."</td><td>". $product['pavadinimas'] . "</td><td class='price'>". $product['kaina'] . "</td><td>". $product['kiekis'] . "</td><td>". $product['image'] . "</td><td><a class='btn btn-sm btn-danger' href='?delete=". $product['id'] ."' >Delete</a></td></tr>";
 					}
 				?>
 			  </tbody>
@@ -39,7 +40,7 @@ if(isset($_POST['logout'])) {
 		</div>
 		<div class="col-6">
 			<h1>Pridėti prekę</h1>
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             <div class="form-group">
               <label>Pavadinimas</label>
               <input class="form-control" type="text" name="pavadinimas">
@@ -58,6 +59,8 @@ if(isset($_POST['logout'])) {
               <div>
             </div>
             <button class="btn btn-primary" type="submit" name="submit">Itraukti</button>
+
+            <input type="file" name="image">
         </form>
 		</div>
 	</div>
