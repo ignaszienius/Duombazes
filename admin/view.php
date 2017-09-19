@@ -1,3 +1,10 @@
+<?php
+if(isset($_POST['logout'])) {
+	session_destroy();
+	header('Location: index.php');
+	} 
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +16,9 @@
 	<div class="row">
 		<div class="col-6">
 			<h1>Prekės</h1>
+			<form method="POST">
+			<button class="btn btn-warning" type="text" name="logout">Logout</button>
+			</form>
 			<table class="table">
 			  <thead>
 			    <tr>

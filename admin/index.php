@@ -1,5 +1,7 @@
 <?php
-	
+session_start();
+if (isset($_SESSION['user'])) {
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -40,3 +42,6 @@ if (mysqli_num_rows($result) > 0) {
 }
 mysqli_close($conn);
 include "view.php";
+} else {
+    header('Location: login.php');
+}

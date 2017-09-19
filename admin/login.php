@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+if(isset($_POST['submit'])) {
+	if ($_POST['user'] == $_POST['password']) {
+		$_SESSION['user'] = $_POST['user'];
+		header('Location: index.php');
+	} else {
+	 echo "Incorrect!";
+	}
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,24 +31,11 @@
 			?>
 			<form method="POST">
 				<label class="form-check-label">Username</label>
-				<input class="form-control" type="username" name="username">
+				<input class="form-control" type="text" name="user">
 				<label class="form-check-label">Password</label>
-				<input class="form-control" type="password" name="password">
-				<button type="submit" class="btn btn-primary">Login</button>
+				<input class="form-control" type="text" name="password">
+				<button type="submit" name="submit" class="btn btn-primary">Login</button>
 			</form>
-		</div>
-		<div class="col">
-			<pre><?php
-			echo "POST";
-			print_r($_POST);
-
-			echo "SESSION";
-			print_r($_SESSION);
-
-			echo "COOKIE";
-			print_r($_COOKIE);
-
-			?><pre>
 		</div>
 	</div>
 </div>
