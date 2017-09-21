@@ -9,24 +9,12 @@
 	<div class="row">
 		<div class="col">
 			<h1>Prekės</h1>
-			<table class="table">
-			  <thead>
-			    <tr>
-			      <th>#</th>
-			      <th>Pavadinimas</th>
-			      <th>Kaina</th>
-			      <th>Kiekis</th>
-			    </tr>
-			  </thead>
-			  <tbody>
 				<?php
 					foreach ($products as $product) {
-						echo "<tr><td>". $product['id'] ."</td><td>". $product['pavadinimas'] . "</td><td class='price'>". $product['kaina'] . "</td><td>". $product['kiekis'] . "</td></tr>";
+						echo "<div class='col-4'><table class='table table-hover table-inverse'><tr><td> Pavadinimas</td><td>". $product['pavadinimas'] . "</td></tr><tr class='price'><td>Kaina</td><td>". $product['kaina'] . "</td></tr><tr><td>Kiekis</td><td>". $product['kiekis'] . "</td></tr><tr><td>Foto</td><td><img src='images/"  . $product['image'] . "'style='height:100px;'></td></tr></table></div>";
 					}
 				?>
-			  </tbody>
-			</table>
-		</div>
+		</div>		
 	</div>
 	<script>
 		$prices = document.getElementsByClassName('price');
