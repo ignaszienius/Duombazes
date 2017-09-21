@@ -32,7 +32,7 @@ if(isset($_POST['logout'])) {
 			  <tbody>
 				<?php
 					foreach ($products as $product) {
-						echo "<tr><td>". $product['id'] ."</td><td>". $product['pavadinimas'] . "</td><td class='price'>". $product['kaina'] . "</td><td>". $product['kiekis'] . "</td><td>". $product['image'] . "</td><td><a class='btn btn-sm btn-danger' href='?delete=". $product['id'] ."' >Delete</a></td></tr>";
+						echo "<tr><td>". $product['id'] ."</td><td>". $product['pavadinimas'] . "</td><td class='price'>". $product['kaina'] . "</td><td>". $product['kiekis'] . "</td><td><img src='../images/"  . $product['image'] . "'style='height:100px;'></td><td><a class='btn btn-sm btn-danger' href='?delete=". $product['id'] ."' >Delete</a></td></tr>";
 					}
 				?>
 			  </tbody>
@@ -72,3 +72,4 @@ if(isset($_POST['logout'])) {
 	</script>
 </body>
 </html>
+
